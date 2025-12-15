@@ -41,3 +41,16 @@ sudo ufw allow ssh
 sudo ufw enable
 sudo journalctl -u ssh
 sudo fail2ban-client status
+
+## Evidence
+
+### Firewall Status
+![UFW Status](screenshots/ufw-status.png)
+
+### Fail2Ban Protection
+![Fail2Ban Status](screenshots/fail2ban-status.png)
+
+### SSH Authentication Logs
+![SSH Logs](screenshots/ssh-auth-logs.png)
+
+
