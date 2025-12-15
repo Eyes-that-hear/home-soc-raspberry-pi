@@ -43,13 +43,40 @@ sudo ufw enable
 sudo journalctl -u ssh
 sudo fail2ban-client status
 ```
+## Architecture Overview
+
+```text
+[ Attacker / Client ]
+        |
+        |  SSH (Port 22)
+        v
+[ Raspberry Pi (Debian Linux) ]
+        |
+        |-- UFW Firewall (Access Control)
+        |-- OpenSSH (Authentication)
+        |-- Fail2Ban (Detection & Enforcement)
+        |
+        v
+[ System Logs / Journalctl ]
+```
+
 ## Evidence
 
-### Firewall Status
+The following screenshots validate host-based security controls implemented on a Raspberry Pi SOC environment. Controls include firewall enforcement (UFW), intrusion detection and prevention (Fail2Ban), and SSH authentication monitoring. Evidence demonstrates successful detection and mitigation of repeated unauthorized access attempts.
+
+### Firewall Enforcement (UFW)
 ![UFW Status](screenshots/ufw-status.png)
 
-### Fail2Ban Protection
+### Intrusion Prevention (Fail2Ban)
 ![Fail2Ban Status](screenshots/fail2ban-status.png)
 
-### SSH Authentication Logs
+### SSH Authentication Monitoring
 ![SSH Logs](screenshots/ssh-auth-logs.png)
+
+### Brute Force Detection & Automated Response
+
+The following screenshots show repeated failed SSH authentication attempts and Fail2Ban automatically banning the attacking IP. Failed SSH authentication attempts were intentionally generated to validate Fail2Ban detection thresholds and automated enforcement actions.
+
+![SSH Brute Force Attempts](screenshots/ssh-bruteforce-attempts.png)
+
+![Fail2Ban IP Banned](screenshots/fail2ban-ip-banned.png)
