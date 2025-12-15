@@ -36,12 +36,13 @@ The goal was to configure, secure, and monitor a Linux system using real-world d
 - Security hardening best practices
 
 ## Example Commands Used
+
 ```bash
 sudo ufw allow ssh
 sudo ufw enable
 sudo journalctl -u ssh
 sudo fail2ban-client status
-
+```
 ## Evidence
 
 ### Firewall Status
@@ -52,5 +53,3 @@ sudo fail2ban-client status
 
 ### SSH Authentication Logs
 ![SSH Logs](screenshots/ssh-auth-logs.png)
-
-
