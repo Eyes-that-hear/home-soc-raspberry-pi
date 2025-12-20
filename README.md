@@ -77,6 +77,11 @@ Fail2Ban is active and monitoring SSH. Repeated failed authentication attempts t
 ![SSH Authentication Logs](screenshots/ssh-auth-logs.png)
 SSH logs show authentication attempts and enforcement actions, confirming visibility and auditability.
 
+### Brute Force Detection & Automated Response
+![SSH Brute Force Attempts](screenshots/ssh-bruteforce-attempts.png)
+Simulated brute-force attempts crossed thresholds and resulted in automatic bans—controls function as designed.
+![Fail2Ban IP Banned](screenshots/fail2ban-ip-banned.png)
+
 ## Network Monitoring & IDS (Zeek)
 
 This lab extends the Home SOC by deploying **Zeek IDS** using Docker on a Raspberry Pi (ARM64).
@@ -99,15 +104,18 @@ Zeek successfully captured and stored:
 - `conn.log` – connection metadata (source, destination, protocol, duration)
 - `dns.log` – DNS queries and responses
 
-### Evidence
-The following screenshots validate Zeek deployment and logging:
+## Evidence
 
-- Zeek container running via Docker  
-- Traffic generation from client system  
-- Zeek logs directory showing `conn.log` and `dns.log`
+The following screenshots validate Zeek deployment and network traffic logging:
 
+### Zeek Container Running
+![Zeek Docker Running](screenshots/zeek-docker-running.png)
 
-### Brute Force Detection & Automated Response
-![SSH Brute Force Attempts](screenshots/ssh-bruteforce-attempts.png)
-Simulated brute-force attempts crossed thresholds and resulted in automatic bans—controls function as designed.
-![Fail2Ban IP Banned](screenshots/fail2ban-ip-banned.png)
+### Zeek Logs Directory
+![Zeek Logs Directory](screenshots/zeek-logs-directory.png)
+
+### Connection Log (conn.log)
+![Zeek conn.log](screenshots/conn-log.png)
+
+### DNS Log (dns.log)
+![Zeek dns.log](screenshots/dns-log.png)
