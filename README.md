@@ -77,6 +77,36 @@ Fail2Ban is active and monitoring SSH. Repeated failed authentication attempts t
 ![SSH Authentication Logs](screenshots/ssh-auth-logs.png)
 SSH logs show authentication attempts and enforcement actions, confirming visibility and auditability.
 
+## Network Monitoring & IDS (Zeek)
+
+This lab extends the Home SOC by deploying **Zeek IDS** using Docker on a Raspberry Pi (ARM64).
+Zeek is used to passively monitor live network traffic and generate structured security logs
+for analysis.
+
+### Zeek Deployment
+- Platform: Raspberry Pi (ARM64 / aarch64)
+- Deployment: Docker container
+- Interface monitored: wlan0
+- Log output directory: `~/zeek-logs`
+
+### Traffic Captured
+To validate monitoring, outbound traffic was intentionally generated:
+- ICMP traffic (`ping google.com`)
+- HTTP/HTTPS requests (`curl example.com`)
+
+### Logs Generated
+Zeek successfully captured and stored:
+- `conn.log` – connection metadata (source, destination, protocol, duration)
+- `dns.log` – DNS queries and responses
+
+### Evidence
+The following screenshots validate Zeek deployment and logging:
+
+- Zeek container running via Docker  
+- Traffic generation from client system  
+- Zeek logs directory showing `conn.log` and `dns.log`
+
+
 ### Brute Force Detection & Automated Response
 ![SSH Brute Force Attempts](screenshots/ssh-bruteforce-attempts.png)
 Simulated brute-force attempts crossed thresholds and resulted in automatic bans—controls function as designed.
