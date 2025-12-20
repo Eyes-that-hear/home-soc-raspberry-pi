@@ -119,3 +119,28 @@ The following screenshots validate Zeek deployment and network traffic logging:
 
 ### DNS Log (dns.log)
 ![Zeek dns.log](screenshots/dns-log.png)
+
+## Host-Based Intrusion Detection (Wazuh Agent)
+
+The Wazuh agent was installed on the Raspberry Pi to extend host-based security monitoring as part of the Home SOC architecture.
+
+### Installation Status
+- Platform: Raspberry Pi (ARM64 / Debian 13)
+- Wazuh Agent Version: 4.14.1
+- Service: Installed and enabled
+- Agent Status: Not started (manager not deployed)
+
+### Configuration Notes
+The Wazuh agent requires a Wazuh Manager to establish a secure connection. At this stage of the lab, no manager has been deployed, so the agent service is intentionally not running.
+
+The default configuration file includes a placeholder value:
+
+
+
+This value will be replaced when a Wazuh Manager is deployed in a future lab.
+
+### Verification
+- Wazuh agent package installed successfully
+- Configuration file present at `/var/ossec/etc/ossec.conf`
+- Service enabled but inactive due to missing manager
+
