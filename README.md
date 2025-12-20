@@ -66,14 +66,18 @@ The following screenshots validate host-based security controls implemented on a
 
 ### Firewall Enforcement (UFW)
 ![UFW Status](screenshots/ufw-status.png)
+UFW is enabled with explicit allow rules. Default deny blocks unsolicited inbound traffic, reducing attack surface.
 
 ### Intrusion Prevention (Fail2Ban)
 ![Fail2Ban Status](screenshots/fail2ban-status.png)
 ![Fail2Ban SSHD Status](screenshots/fail2ban-sshd-status.png)
+Fail2Ban is active and monitoring SSH. Repeated failed authentication attempts trigger automated IP bans.
 
 ### SSH Authentication Monitoring
 ![SSH Authentication Logs](screenshots/ssh-auth-logs.png)
+SSH logs show authentication attempts and enforcement actions, confirming visibility and auditability.
 
 ### Brute Force Detection & Automated Response
 ![SSH Brute Force Attempts](screenshots/ssh-bruteforce-attempts.png)
+Simulated brute-force attempts crossed thresholds and resulted in automatic bans—controls function as designed.
 ![Fail2Ban IP Banned](screenshots/fail2ban-ip-banned.png)
